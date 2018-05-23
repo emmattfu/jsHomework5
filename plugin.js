@@ -131,3 +131,31 @@ function filterCollection(arr, lowPrice, highPrice) {
     }
     return filtredArr.sort((prev, next) => prev - next);
 }
+
+// ES5 Задача № 2 не готова
+let oldArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+    newArr = [],
+    number ={
+
+    };
+
+oldArr.forEach((item) => {
+
+    newArr.push(number.digit = item);
+    return newArr;
+});
+
+console.log(newArr);
+
+// ES5 Задача № 5
+
+let stringArr = [{char:"a",index:12}, {char:"w",index:8}, {char:"Y",index:10}, {char:"p",index:3}, {char:"p",index:2},
+                 {char:"N",index:6}, {char:" ",index:5}, {char:"y",index:4}, {char:"r",index:13}, {char:"H",index:0},
+                 {char:"e",index:11}, {char:"a",index:1}, {char:" ",index:9}, {char:"!",index:14}, {char:"e",index:7}];
+
+stringArr.sort((prev, next) => prev.index - next.index);
+let stringFromArr = stringArr.reduce((prevVal, currentItem, i, arr) => {
+    return prevVal + currentItem.char;
+}, '');
+
+console.log(stringFromArr);
