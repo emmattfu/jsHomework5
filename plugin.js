@@ -1,5 +1,6 @@
 // Функции. Задача № 6
 function newValue(array, callback) {
+    if (!arr.length) return new Error ('this array is empty');
     let result = '';
     for (let element of array) {
         result += callback(element);
@@ -25,16 +26,20 @@ function numberChanger(element) {
 }
 
 function objChanger(element) {
-    let result;
     for (let value in element) {
-        result += value;
+
     }
-    return result;
-    // return element.name + ' is ' + element.age;
+
+    return element.name + ' is ' + element.age;
+    // newValue([{age: 45, name: 'John'}, {age: 20, name: 'Aaron'}])
 }
 
 function reverse(element) {
    return element.split('').reverse().join('');
+}
+
+function numberPlus(element) {
+    return element + 5 + ',';
 }
 //Массивы. Задачи на методы Задача № 2
 function arrLastElement(arr) {
@@ -150,6 +155,7 @@ const products = [
 ];
 
 function filterCollection(arr, lowPrice, highPrice) {
+    if (!arr.length) return new Error ('this array is empty');
     let filtredArr = [];
     for (let prop of arr) {
         if (prop.price >= lowPrice &&  prop.price <= highPrice) {
@@ -181,13 +187,19 @@ let stringFromArr = stringArr.reduce((prevVal, currentItem, i, arr) => {
 console.log(stringFromArr);
 
 // Every
-function isEveryNumber(arr) {
-    if (!arr.length) return new Error('this array is empty');
-    let result;
+let arrayForEvery = [1, 2, 3, 4, 5];
+
+function isEveryNumber(arrayForEvery, callback) {
     for (let i = 0; i < arr.length; i++) {
-        if (typeof arr[i] === 'number'){
-            result = alert('DA')
+        if (callback(arr[i], i, arr)) {
+            return true;
         }
-        return result;
     }
+    return false;
 }
+
+let everyRes = isEveryNumber(arrayForEvery, (element, i, arr) => {
+    return isNaN(element);
+});
+
+console.log(isEveryNumber());
