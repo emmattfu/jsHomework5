@@ -1,14 +1,41 @@
 // Функции. Задача № 6
 function newValue(array, callback) {
+    let result = '';
+    for (let element of array) {
+        result += callback(element);
+    }
 
-
-    return 'New value: ' + changer;
+    return 'New value: ' + result;
 }
 
-function changer(array){
-
+function stringChanger(element){
+    let upArr = [];
+        for (let i = 0; i < element.length; i++) {
+            if (i === 0 ) {
+                upArr.push(element[0].toUpperCase())
+            } else {
+                upArr.push(element[i])
+            }
+        }
+    return upArr.join('');
 }
 
+function numberChanger(element) {
+    return element * 10 + ', ';
+}
+
+function objChanger(element) {
+    let result;
+    for (let value in element) {
+        result += value;
+    }
+    return result;
+    // return element.name + ' is ' + element.age;
+}
+
+function reverse(element) {
+   return element.split('').reverse().join('');
+}
 //Массивы. Задачи на методы Задача № 2
 function arrLastElement(arr) {
     if (!arr.length) return new Error ('this array is empty');
@@ -132,20 +159,13 @@ function filterCollection(arr, lowPrice, highPrice) {
     return filtredArr.sort((prev, next) => prev - next);
 }
 
-// ES5 Задача № 2 не готова
-let oldArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
-    newArr = [],
-    number ={
-
-    };
-
-oldArr.forEach((item) => {
-
-    newArr.push(number.digit = item);
-    return newArr;
+// ES5 Задача № 2
+let oldArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+let newArr = oldArr.map(element => {
+    return {digit: element, odd: element % 2 === 1};
 });
 
-console.log(newArr);
+
 
 // ES5 Задача № 5
 
@@ -159,3 +179,15 @@ let stringFromArr = stringArr.reduce((prevVal, currentItem, i, arr) => {
 }, '');
 
 console.log(stringFromArr);
+
+// Every
+function isEveryNumber(arr) {
+    if (!arr.length) return new Error('this array is empty');
+    let result;
+    for (let i = 0; i < arr.length; i++) {
+        if (typeof arr[i] === 'number'){
+            result = alert('DA')
+        }
+        return result;
+    }
+}
