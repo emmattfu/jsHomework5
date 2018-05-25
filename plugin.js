@@ -189,17 +189,30 @@ console.log(stringFromArr);
 // Every
 let arrayForEvery = [1, 2, 3, 4, 5];
 
-function isEveryNumber(arrayForEvery, callback) {
+function isEveryNumber(arr, func) {
     for (let i = 0; i < arr.length; i++) {
-        if (callback(arr[i], i, arr)) {
+        if (func(arr[i], i, arr)) {
             return true;
         }
     }
     return false;
 }
 
-let everyRes = isEveryNumber(arrayForEvery, (element, i, arr) => {
-    return isNaN(element);
-});
+let everyRes = isEveryNumber(arrayForEvery, (element, i, arr) => element < 0);
 
-console.log(isEveryNumber());
+
+
+
+// some
+let arrayForSome = [1, 2, 3, 4, 5];
+
+function isEveryNumber(arr, func) {
+    for (let i = 0; i < arr.length; i++) {
+        if (func(arr[i], i, arr)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+let everyRes = isEveryNumber(arrayForEvery, (element, i, arr) => element < 0);
