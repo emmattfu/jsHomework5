@@ -26,12 +26,8 @@ function numberChanger(element) {
 }
 
 function objChanger(element) {
-    for (let value in element) {
 
-    }
-
-    return element.name + ' is ' + element.age;
-    // newValue([{age: 45, name: 'John'}, {age: 20, name: 'Aaron'}])
+    return element.name + ' is ' + element.age + ',' ;
 }
 
 function reverse(element) {
@@ -186,33 +182,36 @@ let stringFromArr = stringArr.reduce((prevVal, currentItem, i, arr) => {
 
 console.log(stringFromArr);
 
+// Some
+let arrayForSome = [1, 2, 'we', 4, 5];
+
+function isSomeNumber(arr, func) {
+    if (!arr.length) return new Error ('this array is empty');
+    for (let i = 0; i < arr.length; i++) {
+        if (func(arr[i], i, arr)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+let someRes = isSomeNumber(arrayForSome, (element, i, arr) => {
+    return element > 0;
+});
+
+console.log(someRes);
+
 // Every
 let arrayForEvery = [1, 2, 3, 4, 5];
 
 function isEveryNumber(arr, func) {
     for (let i = 0; i < arr.length; i++) {
-        if (func(arr[i], i, arr)) {
-            return true;
+        if (!func(arr[i], i, arr)) {
+            return false;
         }
     }
-    return false;
+    return true;
 }
 
-let everyRes = isEveryNumber(arrayForEvery, (element, i, arr) => element < 0);
+let everyRes = isEveryNumber(arrayForEvery, (element, i, arr) => element > 0);
 
-
-
-
-// some
-let arrayForSome = [1, 2, 3, 4, 5];
-
-function isEveryNumber(arr, func) {
-    for (let i = 0; i < arr.length; i++) {
-        if (func(arr[i], i, arr)) {
-            return true;
-        }
-    }
-    return false;
-}
-
-let everyRes = isEveryNumber(arrayForEvery, (element, i, arr) => element < 0);
